@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('stock_movimentos',function(Blueprint $table){
             $table->id();
             $table->foreignId('variante_id')->constrained('variante_produtos');
-            $table->foreignId('user_id')->constrained('user');
+            $table->foreignId('user_id')->constrained('users');
             $table->string('tipo');
             $table->integer('quantidade');
             $table->string('motivo');

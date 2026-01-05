@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('produto_id')->constrained('produtos');
             $table->string('cor');
-            $table->float('preco_custo');
-            $table->float('preco_venda');
+            $table->decimal('preco_custo',10,2);
+            $table->decimal('preco_venda',10,2);
             $table->integer('estoque_atual');
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('varaiante_produtos');
+        Schema::dropIfExists('variante_produtos');
     }
 };
