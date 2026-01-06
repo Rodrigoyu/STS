@@ -67,63 +67,6 @@
                                 </button>
                             </td>
                         </tr>
-
-                        <tr class="border-bottom border-light">
-                            <td class="ps-4 py-3">
-                                <div class="d-flex align-items-center gap-3">
-                                    
-                                    <div>
-                                        <h6 class="mb-0 fw-bold text-dark">Camiseta Básica Branca</h6>
-                                        <small class="text-muted" style="font-size: 0.75rem;">SKU: CAM-BAS-M</small>
-                                    </div>
-                                </div>
-                            </td>
-                            <td><span class="badge bg-light text-secondary border">Roupas</span></td>
-                            <td class="fw-bold text-dark">R$ 49,90</td>
-                            <td class="text-center">
-                                <span class="fw-bold text-warning">3</span> <small class="text-muted">un</small>
-                            </td>
-                            <td class="text-center">
-                                <span class="badge bg-warning bg-opacity-10 text-warning px-3 py-2 rounded-pill">Baixo</span>
-                            </td>
-                            <td class="pe-4 text-end">
-                                <button class="btn btn-sm btn-light text-muted border-0 me-1">
-                                    <i class="fas fa-edit"></i>
-                                </button>
-                                <button class="btn btn-sm btn-light text-danger border-0">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="ps-4 py-3">
-                                <div class="d-flex align-items-center gap-3">
-                                    
-                                    <div>
-                                        <h6 class="mb-0 fw-bold text-muted">Relógio Digital Vintage</h6>
-                                        <small class="text-muted" style="font-size: 0.75rem;">SKU: REL-VIN-09</small>
-                                    </div>
-                                </div>
-                            </td>
-                            <td><span class="badge bg-light text-secondary border">Acessórios</span></td>
-                            <td class="fw-bold text-muted">R$ 150,00</td>
-                            <td class="text-center">
-                                <span class="fw-bold text-muted">0</span> <small class="text-muted">un</small>
-                            </td>
-                            <td class="text-center">
-                                <span class="badge bg-secondary bg-opacity-10 text-secondary px-3 py-2 rounded-pill">Inativo</span>
-                            </td>
-                            <td class="pe-4 text-end">
-                                <button class="btn btn-sm btn-light text-muted border-0 me-1">
-                                    <i class="fas fa-edit"></i>
-                                </button>
-                                <button class="btn btn-sm btn-light text-danger border-0">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </td>
-                        </tr>
-
                     </tbody>
                 </table>
             </div>
