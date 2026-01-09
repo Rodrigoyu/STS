@@ -19,10 +19,12 @@
             </button>
         </div>
 
-        <a href="#" class="btn text-white fw-bold shadow-sm d-flex align-items-center gap-2 px-4 py-2" 
-           style="background-color: var(--primary-green); border-radius: 30px;">
-            <i class="fas fa-plus"></i> Novo Produto
-        </a>
+        <button type="button" class="btn text-white fw-bold shadow-sm d-flex align-items-center gap-2 px-4 py-2" 
+   style="background-color: var(--primary-green); border-radius: 30px; border: none;"
+   data-bs-toggle="modal" 
+   data-bs-target="#createProductModal">
+    <i class="fas fa-plus"></i> Novo Produto
+</button>
     </div>
 
     <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
@@ -86,4 +88,9 @@
         </div>
     </div>
 </div>
+
+
+<!-- formulario de cadastro de produto-->
+@include('produto.create')
+
 @endsection

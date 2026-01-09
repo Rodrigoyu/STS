@@ -85,22 +85,12 @@
 
     <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#"><i class="fas fa-boxes me-2"></i> EstoqueApp</a>
+            <a class="navbar-brand" href="#"><i class="fas fa-boxes me-2"></i>STS - Estoque</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    @auth
-                        <li class="nav-item"><a class="nav-link" href="#">Painel</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Produtos</a></li>
-                        <li class="nav-item"><a class="nav-link text-danger" href="#">Sair</a></li>
-                    @else
-                        <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
-                    @endauth
-                </ul>
-            </div>
+            
         </div>
     </nav>
 
@@ -111,6 +101,47 @@
     <footer class="text-center py-3 bg-white text-muted mt-auto border-top">
         <small>&copy; {{ date('Y') }} Sistema de Estoque. Todos os direitos reservados.</small>
     </footer>
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <!-- popUp de sucesso-->
+    @if(session('success'))
+    <div id="successToast" class="toast align-items-center text-white bg-success border-0 shadow-lg" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex p-2">
+            <div class="toast-body d-flex align-items-center gap-2">
+                <i class="fas fa-check-circle fs-5"></i>
+                <div>
+                    <strong class="d-block">Sucesso!</strong>
+                    {{ session('success') }}
+                </div>
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+    </div>
+    <!-- popUp de informações-->
+    @elseif(session('info'))
+    <div id="infoToast" class="toast align-items-center text-white bg-dark border-0 shadow-lg" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex p-2">
+            <div class="toast-body d-flex align-items-center gap-2">
+                <i class="fas fa-info-circle fs-5 text-info"></i>
+                <div>
+                    {{ session('info') }}
+                </div>
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="dismiss" aria-label="Close"></button>
+        </div>
+    </div>
+    @endif
+
+</div>
+
+<script >
+    document.addEventListener('DOMContentLoaded', function () {
+        var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+        var toastList = toastElList.map(function (toastEl) {
+            return new bootstrap.Toast(toastEl, { delay: 5000 }).show(); // 5 segundos
+        });
+    });
+</script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
