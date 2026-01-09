@@ -187,7 +187,7 @@
                     <span class="d-block fw-bold text-dark" style="font-size: 0.9rem;">Rodrigo</span>
                     <small class="text-muted" style="font-size: 0.8rem;">Admin</small>
                 </div>
-                <a href="#" class="ms-auto text-danger" title="Sair"><i class="fas fa-sign-out-alt"></i></a>
+                <a href="{{ route('logout') }}" class="ms-auto text-danger" title="Sair"><i class="fas fa-sign-out-alt"></i></a>
             </div>
         </div>
     </nav>
@@ -213,9 +213,52 @@
 
         <div class="px-4 pb-4">
             @yield('content')
+            
         </div>
     </div>
 
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <!-- popUp de sucesso-->
+    @if(session('success'))
+    <div id="successToast" class="toast align-items-center text-white bg-success border-0 shadow-lg" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex p-2">
+            <div class="toast-body d-flex align-items-center gap-2">
+                <i class="fas fa-check-circle fs-5"></i>
+                <div>
+                    <strong class="d-block">Sucesso!</strong>
+                    {{ session('success') }}
+                </div>
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+    </div>
+    @endif
+    <!-- popUp de informações-->
+    @if(session('info'))
+    <div id="infoToast" class="toast align-items-center text-white bg-dark border-0 shadow-lg" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex p-2">
+            <div class="toast-body d-flex align-items-center gap-2">
+                <i class="fas fa-info-circle fs-5 text-info"></i>
+                <div>
+                    {{ session('info') }}
+                </div>
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="dismiss" aria-label="Close"></button>
+        </div>
+    </div>
+    @endif
+
+</div>
+    <!-- script do popUp-->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+        var toastList = toastElList.map(function (toastEl) {
+            return new bootstrap.Toast(toastEl, { delay: 5000 }).show(); // 5 segundos
+        });
+    });
+</script>
+    <!--script do bootstrap-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // Elementos
