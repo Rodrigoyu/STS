@@ -14,7 +14,7 @@ Route::post('/loginSubmit',[loginController::class, '__invoke'])->name('loginSub
 
 //middleware rotas liberata depois de login
 Route::middleware(['auth'])->group(function(){
-   
+   //view
     Route::get('/',[mainController::class, 'dashBoard'])->name('dashboard');
     route::get('/produto',[mainController::class, 'produto'])->name('produto');
     Route::get('/movimento',[mainController::class, 'movimento'])->name('movimento');
