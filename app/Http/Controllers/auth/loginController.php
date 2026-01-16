@@ -14,7 +14,7 @@ class loginController extends Controller
     public function __invoke(Request $request)
     {
             //validação
-       $credentials = $request->validate([
+       $user= $request->validate([
                 'email'=>'required|email', 
                 'password'=>'required|min:6|max:16'
             ],
@@ -27,7 +27,7 @@ class loginController extends Controller
             ]
             );
             //iniciando o login
-            if(Auth::attempt($credentials,$request->boolean('remember'))){
+            if(Auth::attempt($user,$request->boolean('remember'))){
                 $request->session()->regenerate();
                 return redirect()->intended('/')->with('success','Seja Bem Vindo!!!');
             }

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('restrict');
             $table->string('nome');
             $table->string('descricao');
+            $table->timestamps();
 
         });
     }

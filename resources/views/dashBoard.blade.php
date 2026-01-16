@@ -110,5 +110,9 @@
         </div>
     </div>
 
+    <div class="alert alert-info">
+    Usuário Logado: {{ Auth::check() ? 'Sim' : 'Não' }} <br>
+    ID do Usuário: {{ Auth::id() ?? 'Nenhum ID encontrado' }}
+</div>
 </div>
 @endsection

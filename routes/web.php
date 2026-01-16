@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\auth\loginController;
 use App\Http\Controllers\auth\logoutController;
+use App\Http\Controllers\categoria\categoriaController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\mainController;
 use App\Http\Controllers\produtoController;
@@ -23,6 +24,7 @@ Route::middleware(['auth'])->group(function(){
     
     //formulario
     Route::post('/cadastraProdutos',[produtoController::class, 'cadastraProdutos'])->name('cadastraProdutos');
+    Route::post('/cadastraCategoria',[categoriaController::class, 'cadastraCategoria'])->name('cadastraCategoria');
     
     //logout
     Route::get('/logout',[logoutController::class, '__invoke'])->name('logout');

@@ -3,6 +3,8 @@
 @section('title', 'Categorias')
 
 @section('content')
+
+@include('categoria.create');
 <div class="container-fluid">
 
     <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mb-4 gap-3">
@@ -15,10 +17,12 @@
             </div>
         </div>
 
-        <a href="#" class="btn text-white fw-bold shadow-sm d-flex align-items-center gap-2 px-4 py-2" 
-           style="background-color: var(--primary-green); border-radius: 30px;">
-            <i class="fas fa-plus"></i> Nova Categoria
-        </a>
+        <button type="button" class="btn text-white fw-bold shadow-sm d-flex align-items-center gap-2 px-4 py-2" 
+   style="background-color: var(--primary-green); border-radius: 30px; border: none;"
+   data-bs-toggle="modal" 
+   data-bs-target="#createCategoryModal">
+    <i class="fas fa-plus"></i> Nova Categoria
+</button>
     </div>
 
     <div class="row g-4">
