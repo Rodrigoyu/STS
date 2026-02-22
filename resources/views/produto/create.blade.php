@@ -16,6 +16,7 @@
             </div>
             
             <div class="modal-body p-4">
+                
                 <form action="{{ route('cadastraProdutos') }}" method="POST"> @csrf
                     
                     <div class="row g-3">
@@ -26,11 +27,13 @@
                         
                         <div class="col-md-6">
                             <label class="form-label text-muted small fw-bold">Categoria</label>
-                            <select class="form-select bg-light border-0 text-muted">
-                                <option selected disabled>Selecione...</option>
-                                <option name='categoria_id' value="1">Calçados</option>
-                                
-                            </select>
+                            
+                            <select name="categoria_id" class="form-select">
+    <option value="">Selecione uma Categoria</option>
+    @foreach($categorias as $cat)
+        <option value="{{ $cat->id }}">{{ $cat->nome }}</option>
+    @endforeach
+</select>
                         </div>
                         <div class="col-md-6">
                             <label class="form-label text-muted small fw-bold">Marca/Fabricante</label>
@@ -77,6 +80,11 @@
                         <div class="col-md-6">
                             <label class="form-label text-muted small fw-bold">Tamanho</label>
                             <input type="text" name='tamanho' class="form-control bg-light border-0" placeholder="Ex: G ou 42">
+                        </div>
+
+                        <div class="col-12">
+                            <label class="form-label text-muted small fw-bold">Descrição (Opcional)</label>
+                            <textarea name="descricao" class="form-control bg-light border-0" rows="3" placeholder="Breve resumo da categoria..."></textarea>
                         </div>
                         
                         <!--<div class="col-12 mt-3">

@@ -19,6 +19,8 @@ return new class extends Migration
             $table->decimal('preco_custo',10,2);
             $table->decimal('preco_venda',10,2);
             $table->integer('estoque_atual');
+            $table->integer('estoque_minimo');
+            $table->timestamps();
         });
     }
 

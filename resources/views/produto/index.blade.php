@@ -37,39 +37,43 @@
                             <th class="py-3 border-0">Categoria</th>
                             <th class="py-3 border-0">Preço (Venda)</th>
                             <th class="py-3 border-0 text-center">Estoque</th>
-                            <th class="py-3 border-0 text-center">Status</th>
+                           
                             <th class="pe-4 py-3 border-0 text-end">Ações</th>
                         </tr>
                     </thead>
+                    @foreach ($produto as $pro )
+                    
+                    
                     <tbody>
                         <tr class="border-bottom border-light">
                             <td class="ps-4 py-3">
                                 <div class="d-flex align-items-center gap-3">
                                     
                                     <div>
-                                        <h6 class="mb-0 fw-bold text-dark">Nike Air Jordan 1</h6>
-                                        <small class="text-muted" style="font-size: 0.75rem;">SKU: NK-AIR-001</small>
+                                        <h6 class="mb-0 fw-bold text-dark">{{$pro->nome}}</h6>
+                                        <!--<small class="text-muted" style="font-size: 0.75rem;">SKU: NK-AIR-001</small>-->
                                     </div>
                                 </div>
                             </td>
-                            <td><span class="badge bg-light text-secondary border">Calçados</span></td>
-                            <td class="fw-bold text-dark">R$ 1.299,90</td>
-                            <td class="text-center">
-                                <span class="fw-bold">45</span> <small class="text-muted">un</small>
-                            </td>
-                            <td class="text-center">
-                                <span class="badge bg-success bg-opacity-10 text-success px-3 py-2 rounded-pill">Ativo</span>
-                            </td>
-                            <td class="pe-4 text-end">
-                                <button class="btn btn-sm btn-light text-muted border-0 me-1" title="Editar">
-                                    <i class="fas fa-edit"></i>
-                                </button>
-                                <button class="btn btn-sm btn-light text-danger border-0" title="Excluir">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
+                            @foreach ($pro->variante as $variante )
+                                <td><span class="badge bg-light text-secondary border">cal</span></td>
+                                <td class="fw-bold text-dark">{{$variante->preco_venda}}</td>
+                                <td class="text-center">
+                                    <span class="fw-bold">{{$variante->estoque_atual}}</span> <small class="text-muted">un</small>
+                                </td>
+                                @endforeach
+                                
+                                <td class="pe-4 text-end">
+                                    <button class="btn btn-sm btn-light text-muted border-0 me-1" title="Editar">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <a class="btn btn-sm btn-light text-danger border-0" href="{{ route('deleteProduto') }}" title="Excluir">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    @endforeach
                 </table>
             </div>
 

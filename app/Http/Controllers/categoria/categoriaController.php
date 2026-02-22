@@ -13,15 +13,12 @@ class categoriaController extends Controller
     public function cadastraCategoria(Request $request){
         $userId = Auth::id();
 
-
         $data = $request->validate([
             'nome'=> 'required|unique:categorias,nome',
             'descricao'=> 'required',
         ]);
 
-        
-
-        DB::transaction(function() use ($data,$userId){
+        DB::transaction(function() use ($data,$userId){ 
             $categoria = new Categoria();
             $categoria->user_id = $userId;
             $categoria->nome = $data['nome'];

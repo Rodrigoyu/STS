@@ -15,14 +15,15 @@ class VarianteProduto extends Model
         'tamanho',
         'preco_custo',
         'preco_venda',
-        'estoque_atual'
+        'estoque_atual',
+        'estoque_minimo'
     ];
 
     public function produto(){
         return $this->belongsTo(Produto::class);
     }
 
-    public function movimento(){
+    public function variante(){
         return $this->hasMany(Stockmovimento::class);
     }
 }

@@ -10,6 +10,7 @@ class Produto extends Model
     use HasFactory;
 
     protected $fillable = [
+        'categoria_id', 
         'nome',
         'marca',
         'descricao'
@@ -20,6 +21,6 @@ class Produto extends Model
     }
 
     public function variante(){
-        return $this->hasMany(varianteProduto::class);
+        return $this->hasMany(VarianteProduto::class);
     }
 }

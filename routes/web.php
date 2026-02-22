@@ -25,6 +25,9 @@ Route::middleware(['auth'])->group(function(){
     //formulario
     Route::post('/cadastraProdutos',[produtoController::class, 'cadastraProdutos'])->name('cadastraProdutos');
     Route::post('/cadastraCategoria',[categoriaController::class, 'cadastraCategoria'])->name('cadastraCategoria');
+
+    //controllers
+    Route::get('/deleteProduto',[mainController::class, 'delete'])->name('delete');
     
     //logout
     Route::get('/logout',[logoutController::class, '__invoke'])->name('logout');
